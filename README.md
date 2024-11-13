@@ -45,6 +45,12 @@ python main.py
 python main.py mode=eval
 ```
 
+### Tests 
+```bash
+pytest tests/test_x.py
+```
+
+
 ### Parameter Override Examples 🔧
 
 Hydra allows flexible parameter override from command line. Here are some examples:
