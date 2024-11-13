@@ -1,0 +1,21 @@
+dataset:
+  name: "databricks/dolly_subset"
+  train_split: "train"
+  eval_split: "validation"
+  max_length: 512
+
+storage:
+  type: "local"  # or "s3"
+  local:
+    data_dir: "${hydra:runtime.cwd}/data"
+    cache_dir: "${hydra:runtime.cwd}/data/cache"
+  s3:
+    bucket_name: "your-bucket"
+    aws_region: "us-east-1"
+    access_key: ${oc.env:AWS_ACCESS_KEY_ID}
+    secret_key: ${oc.env:AWS_SECRET_ACCESS_KEY}
+
+preprocessing:
+  batch_size: 4
+  num_workers: 2
+  shuffle: true

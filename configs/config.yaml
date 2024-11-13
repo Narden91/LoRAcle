@@ -1,0 +1,20 @@
+defaults:
+  - model: default
+  - data: default
+  - training: default
+  - _self_
+
+mode: "train"
+print_config: true
+
+experiment:
+  name: ${now:%Y-%m-%d_%H-%M-%S}
+  dir: ${hydra:runtime.cwd}/outputs/${experiment.name}
+  save_dir: ${experiment.dir}/checkpoints
+
+hydra:
+  run:
+    dir: ${experiment.dir}
+  output_subdir: null 
+  job:
+    chdir: true
